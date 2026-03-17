@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AttentionMuseum 营销页 | Marketing</title>
-    <meta name="description" content="AttentionMuseum 应用介绍与支持信息。" />
+    <title>FocusMuseum（注意力博物馆）营销页 | Marketing</title>
+    <meta name="description" content="FocusMuseum（注意力博物馆）应用介绍与支持信息。" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-light-32.png" media="(prefers-color-scheme: light)" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-dark-32.png" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-light-32.png" />
@@ -20,16 +20,16 @@
         <a class="brand brand-home-link" href="../" aria-label="返回主页">
           <picture>
             <source srcset="../assets/attentionmuseum-dark.png" media="(prefers-color-scheme: dark)" />
-            <img src="../assets/attentionmuseum-light.png" alt="AttentionMuseum App Icon" class="brand-icon" />
+            <img src="../assets/attentionmuseum-light.png" alt="FocusMuseum App Icon" class="brand-icon" />
           </picture>
-          <span class="brand-text">AttentionMuseum</span>
+          <span class="brand-text">FocusMuseum</span>
         </a>
         <a class="home-link" href="../">← 返回主页 / Back to Home</a>
 
-        <p class="eyebrow" data-i18n="eyebrow">AttentionMuseum · Marketing</p>
+        <p class="eyebrow" data-i18n="eyebrow">FocusMuseum · Marketing</p>
         <h1 data-i18n="title">应用介绍</h1>
         <p class="subtitle" data-i18n="subtitle">
-          AttentionMuseum 是一款把专注时长与艺术探索结合在一起的应用，帮助你在沉浸中完成专注目标。
+          注意力博物馆（FocusMuseum）是一款把专注时长与艺术探索结合在一起的应用，帮助你在沉浸中完成专注目标。
         </p>
 
         <div class="toolbar">
@@ -78,7 +78,7 @@
       </section>
 
       <footer>
-        <p>© <span id="year"></span> AttentionMuseum. All rights reserved.</p>
+        <p>© <span id="year"></span> FocusMuseum. All rights reserved.</p>
       </footer>
     </main>
 
@@ -91,15 +91,15 @@
 
       const copy = {
         zh: {
-          eyebrow: "AttentionMuseum · 营销页",
+          eyebrow: "FocusMuseum · 营销页",
           title: "应用介绍",
-          subtitle: "AttentionMuseum 是一款把专注时长与艺术探索结合在一起的应用，帮助你在沉浸中完成专注目标。",
+          subtitle: "注意力博物馆（FocusMuseum）是一款把专注时长与艺术探索结合在一起的应用，帮助你在沉浸中完成专注目标。",
           updated: "最后更新：2026-03-17"
         },
         en: {
-          eyebrow: "AttentionMuseum · Marketing",
+          eyebrow: "FocusMuseum · Marketing",
           title: "Marketing Page",
-          subtitle: "AttentionMuseum combines focus sessions with art exploration, helping you complete goals in a more immersive way.",
+          subtitle: "FocusMuseum combines focus sessions with art exploration, helping you complete goals in a more immersive way.",
           updated: "Last Updated: 2026-03-17"
         }
       };
@@ -123,13 +123,13 @@
         }
 
         document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-        localStorage.setItem("attentionmuseum_lang", lang);
+        localStorage.setItem("focusmuseum_lang", lang);
       }
 
       zhBtn.addEventListener("click", () => setLanguage("zh"));
       enBtn.addEventListener("click", () => setLanguage("en"));
 
-      const saved = localStorage.getItem("attentionmuseum_lang");
+      const saved = localStorage.getItem("focusmuseum_lang");
       const browserLang = navigator.language.toLowerCase();
       const initialLang = saved || (browserLang.startsWith("zh") ? "zh" : "en");
 
