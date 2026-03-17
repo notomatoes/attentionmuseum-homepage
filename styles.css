@@ -7,6 +7,9 @@
   --line: rgba(16, 22, 35, 0.1);
   --accent: #2563eb;
   --shadow: 0 16px 40px rgba(24, 39, 75, 0.12);
+  --brand-icon-size: 2.25rem;
+  --brand-gap: 0.65rem;
+  --back-arrow-width: 1.05rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -72,13 +75,13 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: var(--brand-gap);
   margin-bottom: 0.8rem;
 }
 
 .brand-icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: var(--brand-icon-size);
+  height: var(--brand-icon-size);
   border-radius: 0.62rem;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
 }
@@ -96,10 +99,20 @@ body {
 
 .home-link {
   display: inline-block;
-  margin: 0.15rem 0 0.75rem 2.9rem;
+  position: relative;
+  margin: 0.15rem 0 0.75rem calc(var(--brand-icon-size) + var(--brand-gap) - var(--back-arrow-width));
+  padding-left: var(--back-arrow-width);
   font-size: 0.9rem;
+  line-height: 1.2;
   text-decoration: none;
   color: var(--muted);
+}
+
+.home-link::before {
+  content: "\2190";
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .home-link:hover {
