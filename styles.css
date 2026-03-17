@@ -96,7 +96,7 @@ body {
 
 .home-link {
   display: inline-block;
-  margin: 0.15rem 0 0.75rem;
+  margin: 0.15rem 0 0.75rem 2.9rem;
   font-size: 0.9rem;
   text-decoration: none;
   color: var(--muted);
