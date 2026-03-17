@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AttentionMuseum</title>
+    <meta name="description" content="AttentionMuseum" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-light-32.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-dark-32.png" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-light-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f6f8fc;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b1020;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: radial-gradient(circle at 20% -10%, #b7d6ff 0%, transparent 35%),
+          radial-gradient(circle at 85% 10%, #c7b8ff 0%, transparent 28%), var(--bg);
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        font-family: "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+      }
+
+      main {
+        flex: 1;
+        display: grid;
+        place-items: center;
+        align-content: center;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .icon {
+        width: min(42vw, 220px);
+        max-width: 220px;
+        min-width: 120px;
+        border-radius: 26%;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+      }
+
+      .home-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: center;
+        margin-bottom: 1.2rem;
+      }
+
+      .home-link {
+        display: inline-block;
+        padding: 0.52rem 0.92rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: rgba(16, 22, 35, 0.78);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(16, 22, 35, 0.12);
+        backdrop-filter: blur(8px);
+      }
+
+      .home-link:hover {
+        color: rgba(16, 22, 35, 0.92);
+      }
+
+      .home-footer {
+        text-align: center;
+        padding: 0 0 1rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .home-link {
+          color: rgba(233, 238, 252, 0.82);
+          background: rgba(16, 22, 42, 0.64);
+          border-color: rgba(233, 238, 252, 0.2);
+        }
+
+        .home-link:hover {
+          color: rgba(233, 238, 252, 0.96);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <picture>
+        <source srcset="./assets/attentionmuseum-dark.png" media="(prefers-color-scheme: dark)" />
+        <img src="./assets/attentionmuseum-light.png" alt="AttentionMuseum App Icon" class="icon" />
+      </picture>
+    </main>
+
+    <footer class="home-footer">
+      <div class="home-links">
+        <a class="home-link" href="./Marketing/">营销地址 / Marketing</a>
+        <a class="home-link" href="./Privacy-Policy/">隐私地址 / Privacy Policy</a>
+      </div>
+    </footer>
+  </body>
+</html>

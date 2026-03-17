@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AttentionMuseum 营销页 | Marketing</title>
+    <meta name="description" content="AttentionMuseum 应用介绍与支持信息。" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-light-32.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-dark-32.png" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-light-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+
+    <main class="container">
+      <header class="hero">
+        <a class="brand brand-home-link" href="../" aria-label="返回主页">
+          <picture>
+            <source srcset="../assets/attentionmuseum-dark.png" media="(prefers-color-scheme: dark)" />
+            <img src="../assets/attentionmuseum-light.png" alt="AttentionMuseum App Icon" class="brand-icon" />
+          </picture>
+          <span class="brand-text">AttentionMuseum</span>
+        </a>
+        <a class="home-link" href="../">← 返回主页 / Back to Home</a>
+
+        <p class="eyebrow" data-i18n="eyebrow">AttentionMuseum · Marketing</p>
+        <h1 data-i18n="title">应用介绍</h1>
+        <p class="subtitle" data-i18n="subtitle">
+          AttentionMuseum 是一款把专注时长与艺术探索结合在一起的应用，帮助你在沉浸中完成专注目标。
+        </p>
+
+        <div class="toolbar">
+          <div class="lang-switch" role="tablist" aria-label="Language switch">
+            <button id="lang-zh" class="active" type="button" role="tab" aria-selected="true">中文</button>
+            <button id="lang-en" type="button" role="tab" aria-selected="false">English</button>
+          </div>
+          <p class="updated" data-i18n="updated">最后更新：2026-03-17</p>
+        </div>
+      </header>
+
+      <section class="card" data-lang="zh">
+        <h2>中文简介</h2>
+        <ul>
+          <li>产品定位：专注工具 + 艺术探索。</li>
+          <li>核心体验：完成专注后解锁艺术作品并沉淀收藏。</li>
+          <li>适用人群：希望提升专注效率的学生、创作者与知识工作者。</li>
+        </ul>
+      </section>
+
+      <section class="card" data-lang="zh">
+        <h2>地址与政策</h2>
+        <ul>
+          <li>主页：<a href="../">/</a></li>
+          <li>营销页：<a href="../Marketing/">/Marketing</a></li>
+          <li>隐私政策：<a href="../Privacy-Policy/">/Privacy-Policy</a></li>
+        </ul>
+      </section>
+
+      <section class="card" data-lang="en" hidden>
+        <h2>English Summary</h2>
+        <ul>
+          <li>Positioning: a focus tool combined with art exploration.</li>
+          <li>Core value: unlock artworks after focus sessions and build your collection.</li>
+          <li>Target users: students, creators, and knowledge workers who want better focus.</li>
+        </ul>
+      </section>
+
+      <section class="card" data-lang="en" hidden>
+        <h2>Links & Policy</h2>
+        <ul>
+          <li>Home: <a href="../">/</a></li>
+          <li>Marketing: <a href="../Marketing/">/Marketing</a></li>
+          <li>Privacy Policy: <a href="../Privacy-Policy/">/Privacy-Policy</a></li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>© <span id="year"></span> AttentionMuseum. All rights reserved.</p>
+      </footer>
+    </main>
+
+    <script>
+      const zhBtn = document.getElementById("lang-zh");
+      const enBtn = document.getElementById("lang-en");
+      const sections = document.querySelectorAll("[data-lang]");
+      const yearEl = document.getElementById("year");
+      const i18nNodes = document.querySelectorAll("[data-i18n]");
+
+      const copy = {
+        zh: {
+          eyebrow: "AttentionMuseum · 营销页",
+          title: "应用介绍",
+          subtitle: "AttentionMuseum 是一款把专注时长与艺术探索结合在一起的应用，帮助你在沉浸中完成专注目标。",
+          updated: "最后更新：2026-03-17"
+        },
+        en: {
+          eyebrow: "AttentionMuseum · Marketing",
+          title: "Marketing Page",
+          subtitle: "AttentionMuseum combines focus sessions with art exploration, helping you complete goals in a more immersive way.",
+          updated: "Last Updated: 2026-03-17"
+        }
+      };
+
+      function setLanguage(lang) {
+        for (const section of sections) {
+          const visible = section.dataset.lang === lang;
+          section.hidden = !visible;
+        }
+
+        zhBtn.classList.toggle("active", lang === "zh");
+        enBtn.classList.toggle("active", lang === "en");
+        zhBtn.setAttribute("aria-selected", String(lang === "zh"));
+        enBtn.setAttribute("aria-selected", String(lang === "en"));
+
+        for (const node of i18nNodes) {
+          const key = node.dataset.i18n;
+          if (copy[lang][key]) {
+            node.textContent = copy[lang][key];
+          }
+        }
+
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        localStorage.setItem("attentionmuseum_lang", lang);
+      }
+
+      zhBtn.addEventListener("click", () => setLanguage("zh"));
+      enBtn.addEventListener("click", () => setLanguage("en"));
+
+      const saved = localStorage.getItem("attentionmuseum_lang");
+      const browserLang = navigator.language.toLowerCase();
+      const initialLang = saved || (browserLang.startsWith("zh") ? "zh" : "en");
+
+      setLanguage(initialLang);
+      yearEl.textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
